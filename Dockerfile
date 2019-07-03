@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 
-
 # Configurando SSH
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
@@ -10,11 +9,12 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
+# Instalando utilirios
+RUN apt update -y && apt-get install -y vim sudo
+RUN apt update -y && apt-get install -y openssh-client
 
 # Configurando o Firewall
 RUN apt update -y && apt-get install -y iptables sudo
-RUN apt update -y && apt-get install -y vim sudo
-RUN apt update -y && apt-get install -y openssh-client
 RUN adduser root sudo
 RUN touch /etc/init.d/iptables.sh
 RUN chmod 777 /etc/init.d/iptables.sh
