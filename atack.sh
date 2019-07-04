@@ -5,6 +5,9 @@ MASK=$2
 SERVICE=$3
 
 init(){
+    cat conf/banner-attack.txt
+    echo ""
+    sleep 5
     rm -rf temp
     mkdir temp
 }
@@ -32,8 +35,8 @@ removeFilesTemporary(){
 bruteForce(){
     for host in $(ls temp/); do
         for port in $(cat temp/$host); do
-            for user in $(cat conf/word2.txt); do 
-                for password in $(cat conf/word2.txt); do 
+            for user in $(cat conf/words.txt); do 
+                for password in $(cat conf/words.txt); do 
                     clear
                     echo "----------------------------------------"
                     printf "| SERVICE : %-27s|\n" $SERVICE
