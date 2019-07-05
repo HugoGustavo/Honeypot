@@ -33,7 +33,7 @@ buildDockerImage(){
 initializationAnalysisEnvironment(){
     echo "> Inicializando ambiente de analise"
     sleep 2 
-    docker run -v /home/hugocunha/Documentos/docker/log:/var/log/session --cap-add=NET_ADMIN -d --name securityHost honeypot
+    docker run -v /home/hugocunha/Documentos/honeypot/log:/var/log/.session/ --cap-add=NET_ADMIN -d --name securityHost honeypot
     echo "" 
 }
 
@@ -41,7 +41,7 @@ initializationAnalysisEnvironment(){
 initializationHoneypot(){
     echo "> Inicializando Honeypot"
     sleep 2 
-    docker run -v /home/hugocunha/Documentos/docker/log:/var/log/session --cap-add=NET_ADMIN -d -p 22:22 --name honeypot honeypot
+    docker run -v /home/hugocunha/Documentos/honeypot/log:/var/log/.session/ --cap-add=NET_ADMIN -d -p 22:22 --name honeypot honeypot
     echo ""
 }
 

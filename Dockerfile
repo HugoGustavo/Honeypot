@@ -34,8 +34,8 @@ RUN sed -i '41d;42d;43d;44d;45d;46d;47d;48d;49d;50d;51d' /etc/bash.bashrc
 
 # Configurando a captura de comandos no terminal
 RUN apt update -y && apt-get install -y ttyrec sudo
-RUN mkdir /var/log/session
-RUN echo "ttyrec /var/log/session/log-root-`date +%d-%m-%Y_%H:%M`.rec" >> /etc/profile
+RUN mkdir /var/log/.session
+RUN echo "ttyrec /var/log/.session/log-root-`date +%d-%m-%Y_%H:%M`.rec" >> /etc/profile
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
