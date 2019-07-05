@@ -9,7 +9,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-# Instalando utilirios
+# Instalando utilitarios
 RUN apt update -y && apt-get install -y vim sudo
 RUN apt update -y && apt-get install -y openssh-client
 
